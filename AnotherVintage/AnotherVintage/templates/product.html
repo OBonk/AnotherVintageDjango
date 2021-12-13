@@ -1,0 +1,29 @@
+{% include "header.html" %}
+{% load static %}
+<h1> Item No. # {{product.id}} </h1>
+<div style="display:inline-block;vertical-align:top;">
+    {% static "" as baseURL %}
+    <img src="{{ baseURL }}img/{{ product.id }}.jpg">
+
+</div>
+<div style="display:inline-block;">
+    <div>Desc: {{ product.name }}</div>
+    <div>Cost: £{{ product.price }}</div>
+    <div>Size: {{ product.size }}</div>
+    <div>Listed since: {{ product.listed_since }}</div>
+</div>
+{% if user.is_authenticated %}
+<form method="post">{% csrf_token %}
+    <input type="submit" value="Buy" style="background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;">
+</form>
+{% else %}
+    <div> Login to Buy </div>
+{% endif %}

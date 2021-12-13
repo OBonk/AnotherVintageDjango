@@ -1,0 +1,23 @@
+{% include "header.html" %}
+
+</div class = "container">
+    <div style="
+        border-radius: 25px;
+        border: 2px solid blue;
+        padding: 20px;
+        width: 200px;
+        height: minmax(180px,auto);
+      ">
+      <h1>Login</h1>
+      <p style="color:red">{{Warning}}<p>
+        <form method="POST">{% csrf_token %}
+            
+            
+            <label for="username">Username</lable>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+<div>

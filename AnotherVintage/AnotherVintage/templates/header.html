@@ -1,0 +1,27 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<h1>Another Vintage Co.</h1>
+
+<div class="topnav">
+    <a id="home" href="/">Home</a>
+    <a id="shop" href="/shop">Shop</a>
+    <a id="about "href="/about">About</a>
+    {% if user.is_authenticated %}
+        <a id="account" href="/account">Hello! {{ user.username }}</a>
+        <a id="logout" href="/logout">Logout</a>
+    {% else %}
+        <a id="login" href="/login">Login</a>
+        <a id="register" href="/register">Register</a>
+    {% endif %}
+</div>
+<script>
+    var loc = String(window.location.pathname);
+    if (loc=="/"){
+        loc = "home"
+    }else{
+        loc = loc.substring(1);
+    }
+    document.getElementById(loc).classList.toggle('active');
+</script>

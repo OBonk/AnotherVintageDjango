@@ -1,0 +1,29 @@
+{% include "header.html" %}
+
+</div class = "container">
+    <div style="
+        border-radius: 25px;
+        border: 2px solid blue;
+        padding: 20px;
+        width: 200px;
+        height: minmax(180px,auto);
+      ">
+      <h1>Login</h1>
+      <p style="color:red">{{Warning}}<p>
+        <form method="POST">{% csrf_token %}
+            
+            <label for="email">Email</lable>
+            <input type="text" id="email" name="email">
+            <label for="firstname">First Name</lable>
+            <input type="text" id="firstname" name="firstname">
+            <label for="lastname">Last Name</lable>
+            <input type="text" id="lastname" name="lastname">
+
+            <label for="username">Username</lable>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password">
+            <input type="submit" value="Register">
+        </form>
+    </div>
+<div>

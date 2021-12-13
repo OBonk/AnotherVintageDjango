@@ -1,0 +1,25 @@
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(80px, auto);
+    grid-auto-columns: minmax(80px,auto);
+    width: 400px;
+    
+  }
+  .box{
+    text-align: center;
+    background-color: #FAFAFA;
+    width:120px;
+  }
+  .box:hover{
+      background-color: lightcyan;
+      
+  }
+  p {
+      font-family: Arial;
+  }
+  a {
+    font-style: normal;
+  }

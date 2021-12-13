@@ -1,0 +1,25 @@
+<h1>Item NO # {{product.id}} </h1>
+<div>
+    <div>Current Values</div>
+    <div>name: {{product.name}}</div>
+    <div>brand: {{product.brand}}</div>
+    <div>colour: {{product.colour}}</div>
+    <div>price: £{{product.price}}</div>
+    <div>bought_at: £{{product.bought_at}}</div>
+    <div>size: {{product.size}}</div>
+    <div>status: {{product.status}}</div>
+</div>
+<hr>
+<div>
+<form method="POST">{% csrf_token %}
+    <label for="attr">Attribute to Change:</label>
+    <input name="attr" id="attr" type="text">
+    <label for="val">New Value:</label>
+    <input name="val" id="val" type="text">
+    <input type="submit" value="Change Value">
+</form>
+</div>
+<hr>
+<form action="delete/{{product.id}}" method="POST">{% csrf_token %}
+    <input type="submit" value="delete">
+</form>

@@ -1,0 +1,29 @@
+{% include "header.html" %}
+
+
+<p> Hello {{user}}! We hope you have a good day shopping!</p>
+{% if orders%}
+<h2>Orders:</h2>
+<table>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+      <th>Ordered at</th>
+    </tr>
+{% endif %}
+{% for prod in orders%}
+    <tr>
+        <th>{{prod.name}}</th>
+        <th>£{{prod.price}}</th>
+        <th>{{prod.bought_at}}</th>
+    </tr>
+{% endfor %}
+</table>
+<a href= "/shop">
+<p>Go to the shop</p>
+</a>
+<style>
+    tr:nth-child(even) {
+        background-color: #D6EEEE;
+      }
+</style>

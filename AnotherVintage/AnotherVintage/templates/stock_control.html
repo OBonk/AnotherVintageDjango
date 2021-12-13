@@ -1,0 +1,22 @@
+<h1>Stock Control:</h1>
+
+<div style="
+        border-radius: 10px;
+        border: 2px solid black;
+        padding: 20px;
+        width: minmax(200px,auto);
+        height: minmax(180px,auto);
+      ">
+<p style="color:red">{{warning}}</p>
+<form title="Add Stock" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+    {{form}}
+    <input type="submit">
+</form>
+</div>
+<div>
+{% for stock in products%}
+    <li>
+    <a href ="/stock/{{stock.id}}">{{stock}}</a>
+    </li>
+{% endfor %}
+</div>
