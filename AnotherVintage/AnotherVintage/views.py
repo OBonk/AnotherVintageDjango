@@ -86,7 +86,8 @@ def stock_control(request):
     else:
         
         return render(request,"stock_control.html",{"products":rawprods,"form":form})
-
+def about(request):
+    return render(request,"about.html")
 def account(request):
     if request.user.is_authenticated:
         if request.user.groups.filter(name='controller').exists():
@@ -95,9 +96,8 @@ def account(request):
             db =dbconn()
             uid = dict(db["auth_user"].find_one({"username":str(request.user)}))
             uid = uid["_id"]
-            uid = dict(db["auth_user"].find_one({"username":str(request.user)}))
             uncomplete = db["orders"].find({"userID":uid,"status":"uncomplete"})
-            if uncomplete != None:
+            if list(uncomplete) != []:
                 db["orders"].delete_one({"_id":uncomplete[0]["_id"]})
             pids = db["orders"].find({"userID":uid})
             prods = []

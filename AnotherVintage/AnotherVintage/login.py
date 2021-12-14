@@ -6,6 +6,7 @@ from email.utils import parseaddr
 from . import views
 
 def loginRQ(request):
+    # Log user in using django.auth
     if request.method =="POST":
         username = request.POST.get("username")
         pwd = request.POST.get("password")
@@ -26,13 +27,16 @@ def loginRQ(request):
         return render(request,"login.html")
 
 def logoutRQ(request):
+    # Log user out using django.auth
     if request.user != None:
         logout(request)
 
     return render(request,"home.html")#
 
 def registerRQ(request):
+    # Register user using django.auth
     if request.method == "POST":
+        # Check form filled correctly
         if not request.POST.get("username"):
             return render(request,"register.html",{"Warning":"username is required!"})
         elif not request.POST.get("firstname"):
